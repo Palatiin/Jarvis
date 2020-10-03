@@ -1,0 +1,7 @@
+os
+platform
+time
+requests
+bs4
+timedate
+webbrowser
