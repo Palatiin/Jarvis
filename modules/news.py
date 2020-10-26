@@ -121,13 +121,19 @@ class News(object):
     def print_news(self, data):
         if data != [[], []] or data != []:
             if len(data) > 0:
+                c = 0
                 for q in data:
                     if len(q) < 6:
                         # normal occasion
+                        
+                        if c == 1:
+                            MONTHS = ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září',
+                                      'říjen', 'listopad', 'prosinec']
+                        else:
+                            MONTHS = ['ledna', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna', 'září',
+                                      'října', 'listopadu', 'prosince']
 
-                        MONTHS = ['leden', 'únor', 'březen', 'duben', 'květen', 'červen', 'červenec', 'srpen', 'září',
-                                  'říjen', 'listopad', 'prosinec']
-
+                        print(MONTHS)
                         dateTime = str(datetime.now()).split()
                         date = dateTime[0].split("-")[::-1]
                         date[1] = MONTHS[int(date[1]) - 1]
@@ -151,6 +157,7 @@ class News(object):
                     else:
                         # TODO: check if this is ERROR message
                         print(q)
+                    c += 1
             else:
                 print("ERROR: Data empty\n")
         else:
