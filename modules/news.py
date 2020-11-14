@@ -133,7 +133,6 @@ class News(object):
                             MONTHS = ['ledna', 'února', 'března', 'dubna', 'května', 'června', 'července', 'srpna', 'září',
                                       'října', 'listopadu', 'prosince']
 
-                        print(MONTHS)
                         dateTime = str(datetime.now()).split()
                         date = dateTime[0].split("-")[::-1]
                         date[1] = MONTHS[int(date[1]) - 1]

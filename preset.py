@@ -24,9 +24,15 @@ class Preset:
        - exit                          Exits module /News''']
 
     # URLS
-    URLS = {"fit": 'https://www.fit.vut.cz/.cs',
-            "vut": 'https://www.vutbr.cz/',
+    URLS = {"fit": "https://www.fit.vut.cz/.cs",
+            "vut": "https://www.vutbr.cz/",
             "google": "https://www.google.com/",
             "duck": "https://duckduckgo.com/",
             "yt": "https://www.youtube.com/"
             }
+
+    # TIME
+    TIME_ALIASES = ["time", "date"]
+    TIME_COMMANDS = ["salarm"]
+    # MONTHS
+    MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
