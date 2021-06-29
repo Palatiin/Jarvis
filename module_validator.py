@@ -4,13 +4,16 @@
 import os
 import re
 
-## Static analysis of module source code
+## Static analysis of module's header
 #  all specifics that have to be met are specified in comment of class Module
 # @param module name of module source file (module.py)
 # @return Logical value, whether module's structure is valid
 def validate_module(module: str) -> bool:
+    is_valid = True
+
     # TODO
-    pass
+
+    return is_valid
 
 
 ## Loads module-like source files
@@ -27,14 +30,17 @@ def load_modules(directory: str = "modules/") -> list:
         if re.search(suffix_pattern, dirname): 
             continue
 
-        module_files = os.listdir("./"+directory+dirname):
-        module_source = dirname + ".py"
+        module_files = os.listdir("./"+directory+dirname)
+        module_source_name = dirname + ".py"
         
         # skipping modules that do not have source file with the same name as it's directory
-        if module_source not in module_files: 
+        if module_source_name not in module_files: 
             continue
 
-        # TODO
+        module_source_path = f"./{directory}{dirname}/{dirname}.py"
 
-    print(valid_modules)
+        if validate_module(module_source_path):
+            valid_modules.append(dirname)
+
+    return valid_modules
     

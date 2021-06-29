@@ -1,3 +1,11 @@
+"""
+Module: Module Example
+Version: 1.0
+Platform: Linux
+Aliases: test
+Commands:
+Author: Matus
+"""
 # 29.6.2021
 # pattern for all modules
 
