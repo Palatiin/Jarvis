@@ -17,7 +17,7 @@ class Module:
         self.version = None
         self.platform = None
         self.name = None
-        self.aliases = []           # calling commands
+        self.aliases = ""           # calling command
         self.commands = {}          # command-method pairs
     
     ## Prints help page of whole module or any of it's method
