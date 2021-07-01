@@ -15,7 +15,9 @@ class Jarvis:
 
 
     # loads all valid modules and their calling aliases
-    def init_modules(self, src: str = "modules/"):
+    def init_modules(self, src: str):
+        if not src:
+            src = "modules/"
         # default source directory is modules/
         available_modules = module_validator.load_modules(self.operating_system, src)
 
@@ -36,11 +38,11 @@ class Jarvis:
     # loop where Jarvis waits for commands and executes them
     def listen(self):
         while 1:
-            in_expression = input().split()
+            in_expression = input("$: ").split()
             
             if not in_expression:
                 continue
-            
+           
             command = in_expression[0]
             module = self.command_dict.get(command)
             if module:
