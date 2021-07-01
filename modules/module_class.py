@@ -17,9 +17,14 @@ class Module:
         self.version = None
         self.platform = None
         self.name = None
-        self.aliases = ""           # calling command
+        self.alias = ""             # calling command
         self.commands = {}          # command-method pairs
-    
+  
+    ## call method of module, executes command in exp
+    # @param exp command + arguments
+    def __call__(self, exp: list):
+        pass
+
     ## Prints help page of whole module or any of it's method
     def help(self, command: str = ""):
         pass
