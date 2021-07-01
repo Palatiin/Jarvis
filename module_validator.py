@@ -17,9 +17,10 @@ def validate_module(module: str) -> bool:
 
 
 ## Loads module-like source files
+# @param platform system where is jarvis running
 # @param directory where modules are stored
 # @return list of valid modules
-def load_modules(directory: str = "modules/") -> list:
+def load_modules(platform: str, directory: str = "modules/") -> list:
     suffix_pattern = re.compile(".*\.\w+$")
     dir_modules = os.listdir("./"+directory)
     valid_modules = []
