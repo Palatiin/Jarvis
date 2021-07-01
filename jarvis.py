@@ -3,7 +3,6 @@
 # 29.6.2021
 # Matus Remen (matus.remen4@gmail.com)
 
-import os
 from sys import platform
 import module_validator
 
@@ -33,6 +32,7 @@ class Jarvis:
             if self.modules[-1].alias:
                 self.command_dict.update({self.modules[-1].alias: self.modules[-1]})
 
+
     # loop where Jarvis waits for commands and executes them
     def listen(self):
         while 1:
@@ -45,5 +45,11 @@ class Jarvis:
             module = self.command_dict.get(command)
             if module:
                 module(in_expression[1:])
+            elif command == "exit":
+                break
 
+
+if __name__ == "__main__":
+    jarvis = Jarvis()
+    jarvis.listen()
 
