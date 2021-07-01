@@ -10,7 +10,7 @@ import module_validator
 class Jarvis:
     def __init__(self):
         self.modules = []           # list of loaded modules
-        self.command_list = []      # list of commands which will run modules
+        self.command_dict = {}      # list of commands which will run modules
         self.init_modules()
 
 
@@ -30,5 +30,19 @@ class Jarvis:
 
             # loading aliases
             if self.modules[-1].alias:
-                self.command_list.append(self.modules[-1].alias)
+                self.command_dict.update({self.modules[-1].alias: self.modules[-1]})
+
+    # loop where Jarvis waits for commands and executes them
+    def listen(self):
+        while 1:
+            in_expression = input().split()
+            
+            if not in_expression:
+                continue
+            
+            command = in_expression[0]
+            module = self.command_dict.get(command)
+            if module:
+                module(in_expression[1:])
+
 
