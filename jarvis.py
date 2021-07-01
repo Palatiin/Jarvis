@@ -7,21 +7,21 @@ from sys import platform
 import module_validator
 
 class Jarvis:
-    def __init__(self):
+    def __init__(self, modules_src: str = None):
         self.operating_system = platform
         self.modules = []           # list of loaded modules
         self.command_dict = {}      # list of commands which will run modules
-        self.init_modules()
+        self.init_modules(modules_src)
 
 
     # loads all valid modules and their calling aliases
-    def init_modules(self):
+    def init_modules(self, src: str = "modules/"):
         # default source directory is modules/
-        available_modules = module_validator.load_modules(self.operating_system)
+        available_modules = module_validator.load_modules(self.operating_system, src)
 
         for module_name in available_modules:
             class_str = module_name.title()
-            import_str = f"from modules.{module_name}.{module_name} import {class_str}"
+            import_str = f"from {src[:-1]}.{module_name}.{module_name} import {class_str}"
             init_str = f"module = {class_str}()"
 
             exec(import_str)
